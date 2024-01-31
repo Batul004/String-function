@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Functions Demo</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h2 {
+            color: #333;
+        }
+        label {
+            font-size: 18px;
+            color: #333;
+        }
+        input {
+            margin: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        p {
+            font-size: 16px;
+            color: #333;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <h2>String Functions Demo</h2>
+    
+    <label for="inputString">Enter a string:</label>
+    <input type="text" id="inputString" oninput="performStringFunctions()">
+
+    <label for="index">Index:</label>
+    <input type="number" id="index" placeholder="Index">
+
+    <label for="substringStart">Substring Start:</label>
+    <input type="number" id="substringStart" placeholder="Start">
+
+    <label for="substringEnd">Substring End:</label>
+    <input type="number" id="substringEnd" placeholder="End">
+
+    <label for="replacementText">Replacement Text:</label>
+    <input type="text" id="replacementText" placeholder="Replacement Text">
+
+    <button onclick="performStringFunctions()">Perform Functions</button>
+
+    <h3>Result:</h3>
+    <div id="result"></div>
+
+    <script>
+        function performStringFunctions() {
+            const inputString = document.getElementById("inputString").value;
+            const index = document.getElementById("index").value;
+            const substringStart = document.getElementById("substringStart").value;
+            const substringEnd = document.getElementById("substringEnd").value;
+            const replacementText = document.getElementById("replacementText").value;
+
+            const uppercaseResult = inputString.toUpperCase();
+            const lowercaseResult = inputString.toLowerCase();
+            const charAtResult = inputString.charAt(index);
+            const indexOfResult = inputString.indexOf("demo");
+            const substringResult = inputString.substring(substringStart, substringEnd);
+            const replaceResult = inputString.replace("string", replacementText);
+            const concatResult = inputString.concat(" - " + replacementText);
+
+            const resultDiv = document.getElementById("result");
+            resultDiv.innerHTML = `
+                <p><strong>Uppercase:</strong> ${uppercaseResult}</p>
+                <p><strong>Lowercase:</strong> ${lowercaseResult}</p>
+                <p><strong>Character at index ${index}:</strong> ${charAtResult}</p>
+                <p><strong>Index of "demo":</strong> ${indexOfResult}</p>
+                <p><strong>Substring (${substringStart}, ${substringEnd}):</strong> ${substringResult}</p>
+                <p><strong>Replace "string" with "${replacementText}":</strong> ${replaceResult}</p>
+                <p><strong>Concatenate with "${replacementText}":</strong> ${concatResult}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
